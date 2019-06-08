@@ -79,7 +79,7 @@ function pollGamepads() {
     }
   }
 }
-
+// 0 == A; 1 == B; 2== X; 3 == Y;
 function buttonPressed(b) {
   if (typeof(b) == "object") {
     return b.pressed;
@@ -93,17 +93,18 @@ function gameLoop() {
     return;
 
   var gp = gamepads[0];
-  if (buttonPressed(gp.buttons[0])) {
+  if (buttonPressed(gp.buttons[3])) {
     b--;
-  } else if (buttonPressed(gp.buttons[2])) {
+  } if (buttonPressed(gp.buttons[0])) {
     b++;
+    
   }
   if(buttonPressed(gp.buttons[1])) {
     a++;
-  } else if(buttonPressed(gp.buttons[3])) {
+  } if(buttonPressed(gp.buttons[2])) {
     a--;
   }
-
+  
   ball.style.left = a*2 + "px";
   ball.style.top = b*2 + "px";
 
